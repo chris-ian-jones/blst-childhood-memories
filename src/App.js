@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import { appConfig } from './utils/constants'
 import { UserSession } from 'blockstack'
-import { Button } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css'
+
+import Login from './components/Login'
+import SignOut from './components/SignOut'
 
 class App extends React.Component {
   state = {
@@ -24,17 +25,6 @@ class App extends React.Component {
     }
   }
 
-  handleSignIn = () => {
-    const { userSession } = this.state
-    userSession.redirectToSignIn()
-  }
-
-  handleSignOut = () => {
-    const { userSession } = this.state
-    userSession.signUserOut()
-    window.location = '/'
-  }
-
   render() {
     const { userSession } = this.state
     console.log('<App /> userSession: ', this.state.userSession)
@@ -42,13 +32,9 @@ class App extends React.Component {
       <div className="App">
       { 
         userSession.isUserSignedIn() ?
-        <Button onClick={this.handleSignOut}>
-          Sign Out
-        </Button>
+        <SignOut userSession={userSession}/>
         :
-        <Button onClick={this.handleSignIn}>
-          Login
-        </Button>
+        <Login userSession={userSession}/>
       }
       </div>
     )
