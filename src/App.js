@@ -3,8 +3,9 @@ import './App.css';
 import { appConfig } from './utils/constants'
 import { UserSession } from 'blockstack'
 
-import Login from './components/Login'
-import SignOut from './components/SignOut'
+// import Login from './components/Login'
+// import SignOut from './components/SignOut'
+import NavBar from './components/NavBar'
 
 class App extends React.Component {
   state = {
@@ -30,12 +31,13 @@ class App extends React.Component {
     console.log('<App /> userSession: ', this.state.userSession)
     return (
       <div className="App">
-      { 
+        <NavBar userSession={userSession} />
+      {/* { 
         userSession.isUserSignedIn() ?
         <SignOut userSession={userSession}/>
         :
         <Login userSession={userSession}/>
-      }
+      } */}
       </div>
     )
   }
