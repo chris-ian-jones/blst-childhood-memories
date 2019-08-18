@@ -30,7 +30,9 @@ class App extends React.Component {
   }
 
   handleSignOut = () => {
-    console.log('clicked sign out button')
+    const { userSession } = this.state
+    userSession.signUserOut()
+    window.location = '/'
   }
 
   render() {
