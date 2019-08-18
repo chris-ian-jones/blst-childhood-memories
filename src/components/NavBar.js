@@ -12,8 +12,14 @@ class NavBar extends React.Component {
       <>
       { 
         userSession.isUserSignedIn() ?
-        <Menu>
-          <Menu.Item position='right'>
+        <Menu floated='right' fluid='true'>
+          <Menu.Item  position='right'>
+            Posts
+          </Menu.Item>
+          <Menu.Item>
+            My Profile
+          </Menu.Item>
+          <Menu.Item>
             <SignOut userSession={userSession}/>
           </Menu.Item>
         </Menu>
