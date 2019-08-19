@@ -32,12 +32,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar userSession={userSession} />
-      {/* { 
-        userSession.isUserSignedIn() ?
-        <SignOut userSession={userSession}/>
-        :
-        <Login userSession={userSession}/>
-      } */}
       </div>
     )
   }
